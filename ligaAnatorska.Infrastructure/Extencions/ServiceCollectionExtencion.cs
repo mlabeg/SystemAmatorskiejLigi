@@ -1,6 +1,6 @@
-﻿using ligaAmatorska.Domain.Interfaces;
-using ligaAnatorska.Infrastructure.Presistence;
-using ligaAnatorska.Infrastructure.Repositories;
+﻿using LigaAmatorska.Domain.Interfaces;
+using LigaAmatorska.Infrastructure.Presistence;
+using LigaAmatorska.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ligaAnatorska.Infrastructure.Extencions
+namespace LigaAmatorska.Infrastructure.Extencions
 {
 	public static class ServiceCollectionExtencion
 	{

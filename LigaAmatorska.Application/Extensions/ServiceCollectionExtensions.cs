@@ -1,4 +1,4 @@
-﻿using ligaAmatorska.Domain.Interfaces;
+﻿using LigaAmatorska.Domain.Interfaces;
 using LigaAmatorska.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;

@@ -1,4 +1,4 @@
-namespace ligaAmatorska.Models
+namespace LigaAmatorska.Models
 {
 	public class ErrorViewModel
 	{

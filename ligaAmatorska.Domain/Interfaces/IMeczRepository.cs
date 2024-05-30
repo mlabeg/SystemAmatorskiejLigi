@@ -1,11 +1,11 @@
-﻿using ligaAmatorska.Domain.Entities;
+﻿using LigaAmatorska.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ligaAmatorska.Domain.Interfaces
+namespace LigaAmatorska.Domain.Interfaces
 {
 	public interface IMeczRepository
 	{

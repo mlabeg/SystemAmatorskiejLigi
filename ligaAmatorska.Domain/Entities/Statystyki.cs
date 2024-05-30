@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ligaAmatorska.Domain.Entities
+namespace LigaAmatorska.Domain.Entities
 {
 	public class Statystyki
 	{

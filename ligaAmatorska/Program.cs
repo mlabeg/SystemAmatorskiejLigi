@@ -1,4 +1,4 @@
-using ligaAnatorska.Infrastructure.Extencions;
+using LigaAmatorska.Infrastructure.Extencions;
 using LigaAmatorska.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);

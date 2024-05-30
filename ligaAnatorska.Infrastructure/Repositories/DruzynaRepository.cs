@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ligaAmatorska.Domain.Entities;
-using ligaAmatorska.Domain.Interfaces;
+using LigaAmatorska.Domain.Entities;
+using LigaAmatorska.Domain.Interfaces;
 
-namespace ligaAnatorska.Infrastructure.Repositories
+namespace LigaAmatorska.Infrastructure.Repositories
 {
 	internal class DruzynaRepository : IDruzynaRepository
 	{

@@ -1,4 +1,4 @@
-﻿using ligaAmatorska.Domain.Entities;
+﻿using LigaAmatorska.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

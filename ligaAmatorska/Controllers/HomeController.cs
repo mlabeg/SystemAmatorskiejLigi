@@ -1,8 +1,8 @@
-﻿using ligaAmatorska.Models;
+﻿using LigaAmatorska.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ligaAmatorska.Controllers
+namespace LigaAmatorska.Controllers
 {
 	public class HomeController : Controller
 	{

@@ -1,5 +1,5 @@
-﻿using ligaAmatorska.Domain.Entities;
-using ligaAmatorska.Domain.Interfaces;
+﻿using LigaAmatorska.Domain.Entities;
+using LigaAmatorska.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
