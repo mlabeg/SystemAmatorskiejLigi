@@ -1,0 +1,31 @@
+﻿@model IEnumerable<LigaAmatorska.Domain.Entities.Druzyna>
+
+@{
+    ViewData["Title"] = "Lista Drużyn";
+}
+
+<div class="container">
+    <h2>Lista drużyn</h2>
+    <div class="mb-3">
+        <a href="@Url.Action("DodajDruzyne","Home")" class="btn btn-primary">Dodaj drużynę</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var druzyna in Model)
+            {
+                <tr>
+                    <td>@druzyna.nazwa</td>
+                    <td>
+                        <a href="@Url.Action("EdytujDruzyne", "Home", new { id = druzyna.id })" class="btn btn-secondary btn-sm">Edytuj</a>
+                        <a href="@Url.Action("UsunDruzyne", "Home", new { id = druzyna.id })" class="btn btn-danger btn-sm">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

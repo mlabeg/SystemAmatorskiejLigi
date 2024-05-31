@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Application.Services
 {
-	internal interface IMeczService
-	{
-		Task DodajMecz(Mecz mecz);
-	}
+    public interface IMeczService
+    {
+        Task DodajMecz(Mecz mecz);
+    }
 }

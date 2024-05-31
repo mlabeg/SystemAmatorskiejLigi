@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Domain.Interfaces
 {
-	public interface IDruzynaRepository
-	{
-		Task DodajDruzyne(Druzyna druzyna);
+    public interface IDruzynaRepository
+    {
+        Task DodajDruzyne(Druzyna druzyna);
 
-		Task<IEnumerable<Druzyna>> GetAllAsync();
+        Task<IEnumerable<Druzyna>> GetAllAsync();
 
-		Task<Druzyna> GetByIdAsync(int id);
-	}
+        Task<Druzyna> GetByIdAsync(int id);
+
+        public Task RemoveByIdAsync(int id);
+    }
 }

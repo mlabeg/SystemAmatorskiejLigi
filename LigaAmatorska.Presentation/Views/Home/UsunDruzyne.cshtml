@@ -1,0 +1,25 @@
+﻿@model LigaAmatorska.Domain.Entities.Druzyna
+
+@{
+    ViewData["Title"] = "Usuń Drużynę";
+}
+
+<div class="container">
+    <h4>Usuń Drużynę</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <h5>Czy na pewno chcesz usunąć tę drużynę?</h5>
+            <div>
+                <h6>@Model.nazwa</h6>
+            </div>
+            <form asp-action="UsunDruzyneConfirmed">
+                <input type="hidden" asp-for="id" />
+                <div class="form-group">
+                    <input type="submit" value="Usuń" class="btn btn-danger" />
+                    <a asp-action="WyswietlWszystkiedruzyny" class="btn btn-secondary">Anuluj</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

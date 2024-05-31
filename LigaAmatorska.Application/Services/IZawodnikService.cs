@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Application.Services
 {
-	internal interface IZawodnikService
-	{
-		Task DodajZawodnika(Zawodnik zawodnik);
-	}
+    public interface IZawodnikService
+    {
+        Task DodajZawodnika(Zawodnik zawodnik);
+    }
 }

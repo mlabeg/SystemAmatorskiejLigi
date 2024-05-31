@@ -1,4 +1,5 @@
 ﻿using LigaAmatorska.Domain.Entities;
+using LigaAmatorska.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Application.Services
 {
-	internal class ZawodnikService : IZawodnikService
-	{
-		private readonly IZawodnikService _zawodnikService;
+    internal class ZawodnikService : IZawodnikService
+    {
+        private readonly IZawodnikRepository _zawodnikRepository;
 
-		public ZawodnikService(IZawodnikService zawodnikService)
-		{
-			_zawodnikService = zawodnikService;
-		}
+        public ZawodnikService(IZawodnikRepository zawodnikRepository)
+        {
+            _zawodnikRepository = zawodnikRepository;
+        }
 
-		public async Task DodajZawodnika(Zawodnik zawodnik)
-		{
-			await _zawodnikService.DodajZawodnika(zawodnik);
-		}
-	}
+        public async Task DodajZawodnika(Zawodnik zawodnik)
+        {
+            await _zawodnikRepository.DodajZawodnika(zawodnik);
+        }
+    }
 }

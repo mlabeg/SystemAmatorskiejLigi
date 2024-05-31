@@ -10,30 +10,40 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LigaAmatorska.Infrastructure.Repositories
 {
-	internal class DruzynaRepository : IDruzynaRepository
-	{
-		private readonly LigaDbContext _dbContext;
+    internal class DruzynaRepository : IDruzynaRepository
+    {
+        private readonly LigaDbContext _dbContext;
 
-		public DruzynaRepository(LigaDbContext dbContext)
-		{
-			_dbContext = dbContext;
-		}
+        public DruzynaRepository(LigaDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
-		public async Task DodajDruzyne(Druzyna druzyna)
-		{
-			_dbContext.Druzyny.Add(druzyna);
-			await _dbContext.SaveChangesAsync();
-		}
+        public async Task DodajDruzyne(Druzyna druzyna)
+        {
+            _dbContext.Druzyny.Add(druzyna);
+            await _dbContext.SaveChangesAsync();
+        }
 
-		public async Task<IEnumerable<Druzyna>> GetAllAsync()
-		{
-			return await _dbContext.Druzyny.ToListAsync();
-		}
+        public async Task<IEnumerable<Druzyna>> GetAllAsync()
+        {
+            return await _dbContext.Druzyny.ToListAsync();
+        }
 
-		public async Task<Druzyna> GetByIdAsync(int id)
-		{
-			return await _dbContext.Druzyny
-				.FirstAsync(i => i.id == id);
-		}
-	}
+        public async Task<Druzyna> GetByIdAsync(int id)
+        {
+            return await _dbContext.Druzyny
+                .FirstAsync(i => i.id == id);
+        }
+
+        public async Task RemoveByIdAsync(int id)
+        {
+            var druzyna = await _dbContext.Druzyny.FirstAsync(d => d.id == id);
+            if (druzyna != null)
+            {
+                _dbContext.Druzyny.Remove(druzyna);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+    }
 }
