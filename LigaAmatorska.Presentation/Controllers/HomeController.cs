@@ -17,14 +17,16 @@ namespace LigaAmatorska.Controllers
         private readonly IMeczService _meczService;
         private readonly IZawodnikService _zawodnikService;
         private readonly IStatystykiService _statystykiService;
+        private readonly IWynikiDruzynService _wynikiDruzynService;
 
-        public HomeController(ILogger<HomeController> logger, IDruzynaService druzynaService, IMeczService meczService, IZawodnikService zawodnikService, IStatystykiService statystykiService)
+        public HomeController(ILogger<HomeController> logger, IDruzynaService druzynaService, IMeczService meczService, IZawodnikService zawodnikService, IStatystykiService statystykiService, IWynikiDruzynService wynikiDruzynService)
         {
             _logger = logger;
             _druzynaService = druzynaService;
             _meczService = meczService;
             _zawodnikService = zawodnikService;
             _statystykiService = statystykiService;
+            _wynikiDruzynService = wynikiDruzynService;
         }
 
         public IActionResult Index()
@@ -52,6 +54,8 @@ namespace LigaAmatorska.Controllers
         [HttpPost]
         public async Task<IActionResult> DodajDruzyne(Druzyna druzyna)
         {
+            int idWynikowDruzyn = await _wynikiDruzynService.DodajWynikiDruzyn(new WynikiDruzyny { });
+
             await _druzynaService.DodajDruzyne(druzyna);
             return RedirectToAction("WyswietlWszystkiedruzyny");
         }
@@ -106,8 +110,8 @@ namespace LigaAmatorska.Controllers
             {
                 Druzyny = druzyny.Select(d => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
                 {
-                    Value = d.id.ToString(),
-                    Text = d.nazwa
+                    Value = d.Id.ToString(),
+                    Text = d.Nazwa
                 }).ToList()
             };
             return View(zawodnikDruzyna);

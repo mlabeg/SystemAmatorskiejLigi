@@ -33,12 +33,12 @@ namespace LigaAmatorska.Infrastructure.Repositories
         public async Task<Druzyna> GetByIdAsync(int id)
         {
             return await _dbContext.Druzyny
-                .FirstAsync(i => i.id == id);
+                .FirstAsync(i => i.Id == id);
         }
 
         public async Task RemoveByIdAsync(int id)
         {
-            var druzyna = await _dbContext.Druzyny.FirstAsync(d => d.id == id);
+            var druzyna = await _dbContext.Druzyny.FirstAsync(d => d.Id == id);
             if (druzyna != null)
             {
                 _dbContext.Druzyny.Remove(druzyna);

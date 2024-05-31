@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Application.Services
 {
-    internal class WynikiDruzynService
+    internal class WynikiDruzynService : IWynikiDruzynService
     {
         private readonly IWynikiDruzynRepository _wynikiDruzynRepository;
 

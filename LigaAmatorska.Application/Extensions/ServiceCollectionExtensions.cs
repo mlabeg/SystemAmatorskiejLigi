@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using LigaAmatorska.Application.Services;
+
 namespace LigaAmatorska.Application.Extensions
 {
     public static class ServiceCollectionExtensions
@@ -14,9 +16,10 @@ namespace LigaAmatorska.Application.Extensions
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IMeczService, MeczService>();
-            services.AddScoped<IZawodnikService, ZawodnikService>();
             services.AddScoped<IDruzynaService, DruzynaService>();
+            services.AddScoped<IZawodnikService, ZawodnikService>();
             services.AddScoped<IStatystykiService, StaytstykiService>();
+            services.AddScoped<IWynikiDruzynService, WynikiDruzynService>();
         }
     }
 }

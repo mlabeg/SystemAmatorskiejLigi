@@ -23,6 +23,7 @@ namespace LigaAmatorska.Infrastructure.Extencions
             services.AddScoped<IZawodnikRepository, ZawodnikRepository>();
             services.AddScoped<IDruzynaRepository, DruzynaRepository>();
             services.AddScoped<IStatystykiRepository, StatystykiRepository>();
+            services.AddScoped<IWynikiDruzynRepository, WynikiDruzynRepository>();
         }
     }
 }

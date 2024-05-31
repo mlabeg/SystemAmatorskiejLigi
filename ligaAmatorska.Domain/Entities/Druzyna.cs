@@ -8,9 +8,10 @@ namespace LigaAmatorska.Domain.Entities
 {
     public class Druzyna
     {
-        public int id { get; set; }
-        public string nazwa { get; set; }
-        public int idMenadzer { get; set; }
-        public WynikiDruzyny wynikiDruzyny { get; set; }
+        public int Id { get; set; }
+        public string Nazwa { get; set; }
+        public int IdMenadzer { get; set; }
+        public WynikiDruzyny WynikiDruzyny { get; set; }
+        public int IdWynikowDruzyny { get; set; }
     }
 }
