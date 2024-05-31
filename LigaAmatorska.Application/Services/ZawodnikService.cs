@@ -21,5 +21,15 @@ namespace LigaAmatorska.Application.Services
         {
             await _zawodnikRepository.DodajZawodnika(zawodnik);
         }
+
+        public async Task<IEnumerable<Zawodnik>> GetAllAsync()
+        {
+            return await _zawodnikRepository.GetAllAsync();
+        }
+
+        public async Task<Zawodnik> GetByIdAsync(int id)
+        {
+            return await _zawodnikRepository.GetByIdAsync(id);
+        }
     }
 }

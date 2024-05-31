@@ -4,6 +4,8 @@ namespace LigaAmatorska.Presentation.Models
 {
     public class LoginViewModel
     {
+        public static bool zalogowano = false;
+
         [Required(ErrorMessage = "Nazwa użytkownika jest wymagana")]
         public string NazwaUzytkownika { get; set; }
 

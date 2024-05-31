@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using LigaAmatorska.Application.Services;
 using Microsoft.EntityFrameworkCore;
+using LigaAmatorska.Presentation.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LigaAmatorska.Controllers
 {
@@ -92,6 +94,48 @@ namespace LigaAmatorska.Controllers
         {
             await _druzynaService.RemoveByIdAsync(id);
             return RedirectToAction("WyswietlWszystkieDruzyny");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DodajZawodnika()
+        {
+            var druzyny = await _druzynaService.GetAllAsync();
+            var zawodnikDruzyna = new ZawodnikDruzynaViewModel
+            {
+                Druzyny = druzyny.Select(d => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+                {
+                    Value = d.id.ToString(),
+                    Text = d.nazwa
+                }).ToList()
+            };
+            return View(zawodnikDruzyna);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DodajZawodnika(ZawodnikDruzynaViewModel zawodnikDruzyna)
+        {
+            if (ModelState.IsValid)
+            {
+                await _zawodnikService.DodajZawodnika(new Zawodnik
+                {
+                    nazwisko = zawodnikDruzyna.nazwisko,
+                    imie = zawodnikDruzyna.imie,
+                    dataUrodzenia = zawodnikDruzyna.dataUrodzenia,
+                    numer = zawodnikDruzyna.numer,
+                    idDruzyny = zawodnikDruzyna.idDruzyny
+                });
+
+                return RedirectToAction("WyswietlWszystkichZawodnikow");
+            }
+
+            return View(zawodnikDruzyna);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> WyswietlWszystkichZawodnikow()
+        {
+            var zawodnicy = await _zawodnikService.GetAllAsync();
+            return View(zawodnicy);
         }
     }
 }

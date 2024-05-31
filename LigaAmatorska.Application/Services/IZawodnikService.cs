@@ -10,5 +10,9 @@ namespace LigaAmatorska.Application.Services
     public interface IZawodnikService
     {
         Task DodajZawodnika(Zawodnik zawodnik);
+
+        public Task<IEnumerable<Zawodnik>> GetAllAsync();
+
+        public Task<Zawodnik> GetByIdAsync(int id);
     }
 }

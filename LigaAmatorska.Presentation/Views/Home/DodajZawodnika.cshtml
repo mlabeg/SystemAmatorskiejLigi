@@ -1,0 +1,43 @@
+﻿@model LigaAmatorska.Presentation.Models.ZawodnikDruzynaViewModel
+@{
+    ViewData["Title"] = "Dodaj zawodnika";
+}
+
+<h2>Dodaj zawodnika</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="nazwisko" class="control-label">Nazwisko</label>
+        <input asp-for="nazwisko" class="form-control" />
+        <span asp-validation-for="nazwisko" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="imie" class="control-label">Imię</label>
+        <input asp-for="imie" class="form-control" />
+        <span asp-validation-for="imie" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="numer" class="control-label">Numer</label>
+        <input asp-for="numer" class="form-control" />
+        <span asp-validation-for="numer" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="dataUrodzenia" class="control-label">Data urodzenia</label>
+        <input asp-for="dataUrodzenia" class="form-control" type="date" />
+        <span asp-validation-for="dataUrodzenia" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="idDruzyny" class="control-label">Drużyna</label>
+        <select asp-for="idDruzyny" class="form-control" asp-items="Model.Druzyny"></select>
+        <span asp-validation-for="idDruzyny" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Dodaj" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

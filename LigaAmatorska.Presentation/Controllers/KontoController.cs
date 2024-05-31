@@ -7,13 +7,6 @@ namespace LigaAmatorska.Presentation.Controllers
 {
     public class KontoController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-
-        public KontoController(SignInManager<IdentityUser> signInManager)
-        {
-            _signInManager = signInManager;
-        }
-
         [HttpGet]
         public IActionResult Logowanie()
         {
@@ -25,10 +18,9 @@ namespace LigaAmatorska.Presentation.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.NazwaUzytkownika, model.Haslo, false, false);
-
                 if (model.Haslo == "admin")
                 {
+                    LoginViewModel.zalogowano = true;
                     return RedirectToAction("Index", "Home");
                 }
                 else
