@@ -1,29 +1,32 @@
 ﻿using LigaAmatorska.Controllers;
 using LigaAmatorska.Presentation.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LigaAmatorska.Presentation.Controllers
 {
     public class KontoController : Controller
     {
-        private readonly ILogger<KontoController> _logger;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public KontoController(ILogger<KontoController> logger)
+        public KontoController(SignInManager<IdentityUser> signInManager)
         {
-            _logger = logger;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Logowanie()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Logowanie(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
+                var result = await _signInManager.PasswordSignInAsync(model.NazwaUzytkownika, model.Haslo, false, false);
+
                 if (model.Haslo == "admin")
                 {
                     return RedirectToAction("Index", "Home");
