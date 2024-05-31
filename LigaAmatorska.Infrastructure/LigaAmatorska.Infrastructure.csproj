@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ligaAmatorska.Domain\LigaAmatorska.Domain.csproj" />
+    <ProjectReference Include="..\LigaAmatorska.Domain\LigaAmatorska.Domain.csproj" />
   </ItemGroup>
 
 </Project>

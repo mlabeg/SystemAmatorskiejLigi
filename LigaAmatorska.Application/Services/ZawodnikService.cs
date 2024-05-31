@@ -11,6 +11,11 @@ namespace LigaAmatorska.Application.Services
 	{
 		private readonly IZawodnikService _zawodnikService;
 
+		public ZawodnikService(IZawodnikService zawodnikService)
+		{
+			_zawodnikService = zawodnikService;
+		}
+
 		public async Task DodajZawodnika(Zawodnik zawodnik)
 		{
 			await _zawodnikService.DodajZawodnika(zawodnik);

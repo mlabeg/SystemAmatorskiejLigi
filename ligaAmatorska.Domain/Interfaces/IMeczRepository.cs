@@ -11,8 +11,8 @@ namespace LigaAmatorska.Domain.Interfaces
 	{
 		Task DodajMecz(Mecz mecz);
 
-		Task<IEnumerable<Mecz>> GetAll();
+		Task<IEnumerable<Mecz>> GetAllAsync();
 
-		Task<Mecz> GetById(int id);
+		Task<Mecz> GetByIdAsync(int id);
 	}
 }

@@ -12,6 +12,11 @@ namespace LigaAmatorska.Application.Services
 	{
 		private readonly IMeczRepository _meczRepository;
 
+		public MeczService(IMeczRepository meczRepository)
+		{
+			_meczRepository = meczRepository;
+		}
+
 		public async Task DodajMecz(Mecz mecz)
 		{
 			await _meczRepository.DodajMecz(mecz);

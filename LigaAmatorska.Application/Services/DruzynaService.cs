@@ -12,6 +12,11 @@ namespace LigaAmatorska.Application.Services
 	{
 		private readonly IDruzynaRepository _druzynaRepository;
 
+		public DruzynaService(IDruzynaRepository druzynaRepository)
+		{
+			_druzynaRepository = druzynaRepository;
+		}
+
 		public async Task DodajDruzyne(Druzyna druzyna)
 		{
 			await _druzynaRepository.DodajDruzyne(druzyna);

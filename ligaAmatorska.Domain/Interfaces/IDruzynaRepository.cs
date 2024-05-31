@@ -11,8 +11,8 @@ namespace LigaAmatorska.Domain.Interfaces
 	{
 		Task DodajDruzyne(Druzyna druzyna);
 
-		Task<IEnumerable<Druzyna>> GetAll();
+		Task<IEnumerable<Druzyna>> GetAllAsync();
 
-		Task<Druzyna> GetById(int id);
+		Task<Druzyna> GetByIdAsync(int id);
 	}
 }

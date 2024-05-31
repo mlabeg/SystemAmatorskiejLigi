@@ -5,9 +5,9 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LigaAmatorska.Presentation", "LigaAmatorska.Presentation.csproj", "{FAEEE112-51A8-425F-9DD0-2FE5E328DC8B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LigaAmatorska.Infrastructure", "..\ligaAnatorska.Infrastructure\LigaAmatorska.Infrastructure.csproj", "{E8471C19-A731-4778-A06F-6CE4E07BC317}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LigaAmatorska.Infrastructure", "..\LigaAmatorska.Infrastructure\LigaAmatorska.Infrastructure.csproj", "{E8471C19-A731-4778-A06F-6CE4E07BC317}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LigaAmatorska.Domain", "..\ligaAmatorska.Domain\LigaAmatorska.Domain.csproj", "{E1439ADD-D4F7-41A1-A2CE-596EA43706A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LigaAmatorska.Domain", "..\LigaAmatorska.Domain\LigaAmatorska.Domain.csproj", "{E1439ADD-D4F7-41A1-A2CE-596EA43706A6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LigaAmatorska.Application", "..\LigaAmatorska.Application\LigaAmatorska.Application.csproj", "{FB3B0B82-4D00-49FE-852C-4F3E66BAF6CF}"
 EndProject

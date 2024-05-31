@@ -1,0 +1,3 @@
+TODOs:
+- przenieœæ wszystkie projekty do jednego folderu
+- poprawiæ w ca³ym projekcie to jak nazywaj¹ siê projekty i foldery w których s¹
