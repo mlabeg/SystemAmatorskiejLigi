@@ -1,0 +1,43 @@
+﻿@model IEnumerable<LigaAmatorska.Domain.Entities.Zawodnik>
+@{
+    ViewData["Title"] = "Lista Zawodników";
+}
+
+<h2>Lista Zawodników</h2>
+
+<a href="@Url.Action("DodajZawodnika", "Home")" class="btn btn-primary mb-3">Dodaj nowego zawodnika</a>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nazwisko</th>
+            <th>Imię</th>
+            <th>Numer</th>
+            <th>Data Urodzenia</th>
+            <th>Drużyna</th>
+        </tr>
+    </thead>
+    
+        @if (!Model.Any())
+        {
+            <p>Brak danych</p>
+        }
+        else
+        {
+        <tbody>
+            @foreach (var zawodnik in Model)
+            {
+                <tr>
+                    <td>@zawodnik.nazwisko</td>
+                    <td>@zawodnik.imie</td>
+                    <td>@zawodnik.numer</td>
+                    <td>@zawodnik.dataUrodzenia.ToString("yyyy-MM-dd")</td>
+                    <td>@zawodnik.idDruzyny</td>
+                </tr>
+            }
+        </tbody>
+        }
+
+        
+</table>

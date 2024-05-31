@@ -114,8 +114,8 @@ namespace LigaAmatorska.Controllers
         [HttpPost]
         public async Task<IActionResult> DodajZawodnika(ZawodnikDruzynaViewModel zawodnikDruzyna)
         {
-            if (ModelState.IsValid)
-            {
+           // if (ModelState.IsValid)
+            //{
                 await _zawodnikService.DodajZawodnika(new Zawodnik
                 {
                     nazwisko = zawodnikDruzyna.nazwisko,
@@ -126,9 +126,9 @@ namespace LigaAmatorska.Controllers
                 });
 
                 return RedirectToAction("WyswietlWszystkichZawodnikow");
-            }
+           // }
 
-            return View(zawodnikDruzyna);
+           // return View(zawodnikDruzyna);
         }
 
         [HttpGet]
