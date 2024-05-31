@@ -1,3 +1,3 @@
 TODOs:
-- przenieœæ wszystkie projekty do jednego folderu
-- poprawiæ w ca³ym projekcie to jak nazywaj¹ siê projekty i foldery w których s¹
+
+- przy dodawniu zawodnika z poziomu konkretnej dru¿yny nale¿y móc dodaæ go tylko do jednej konkretnej dru¿yny

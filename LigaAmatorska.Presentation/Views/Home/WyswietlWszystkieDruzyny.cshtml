@@ -21,6 +21,7 @@
                 <tr>
                     <td>@druzyna.nazwa</td>
                     <td>
+                        <a href="@Url.Action("ZawodnicyDruzyny", "Home", new { idDruzyny = druzyna.id })" class="btn btn-secondary btn-sm">Zawodnicy</a>
                         <a href="@Url.Action("EdytujDruzyne", "Home", new { id = druzyna.id })" class="btn btn-secondary btn-sm">Edytuj</a>
                         <a href="@Url.Action("UsunDruzyne", "Home", new { id = druzyna.id })" class="btn btn-danger btn-sm">Usuń</a>
                     </td>

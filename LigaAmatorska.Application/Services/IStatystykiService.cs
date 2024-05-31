@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Application.Services
 {
-    internal interface IStatystykiService
+    public interface IStatystykiService
     {
-        public Task DodajStatytyki(Statystyki staytstyki);
+        public Task<int> DodajStatytyki(Statystyki staytstyki);
     }
 }

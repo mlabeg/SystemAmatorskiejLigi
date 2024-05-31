@@ -12,16 +12,11 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-
-                    <form asp-controller="Konto" asp-action="Logowanie" method="post" class="form-inline">
-                        <button type="submit" class="btn btn-link nav-link">Zaloguj</button>
-                    </form>
-                                       
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="WyswietlWszystkiedruzyny">Drużyny</a>
-                        </li>
+                <form asp-controller="Konto" asp-action="Logowanie" method="post" class="form-inline">
+                    <button type="submit" class="btn btn-link nav-link">Zaloguj</button>
+                </form>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav ms-auto flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Aktualnosci">Aktualności</a>
                         </li>
@@ -32,10 +27,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Terminarz">Terminarz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Zespoly">Zespoły</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="WyswietlWszystkiedruzyny">Zespoły</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="WyswietlWszystkichZawodnikow">Zawodnicy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Zawodnicy">Zawodnicy</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Statystyki">Statystyki</a>
@@ -53,7 +48,6 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - ligaAmatorska - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

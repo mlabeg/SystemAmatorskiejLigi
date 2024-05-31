@@ -16,13 +16,15 @@ namespace LigaAmatorska.Controllers
         private readonly IDruzynaService _druzynaService;
         private readonly IMeczService _meczService;
         private readonly IZawodnikService _zawodnikService;
+        private readonly IStatystykiService _statystykiService;
 
-        public HomeController(ILogger<HomeController> logger, IDruzynaService druzynaService, IMeczService meczService, IZawodnikService zawodnikService)
+        public HomeController(ILogger<HomeController> logger, IDruzynaService druzynaService, IMeczService meczService, IZawodnikService zawodnikService, IStatystykiService statystykiService)
         {
             _logger = logger;
             _druzynaService = druzynaService;
             _meczService = meczService;
             _zawodnikService = zawodnikService;
+            _statystykiService = statystykiService;
         }
 
         public IActionResult Index()
@@ -114,27 +116,37 @@ namespace LigaAmatorska.Controllers
         [HttpPost]
         public async Task<IActionResult> DodajZawodnika(ZawodnikDruzynaViewModel zawodnikDruzyna)
         {
-           // if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             //{
-                await _zawodnikService.DodajZawodnika(new Zawodnik
-                {
-                    nazwisko = zawodnikDruzyna.nazwisko,
-                    imie = zawodnikDruzyna.imie,
-                    dataUrodzenia = zawodnikDruzyna.dataUrodzenia,
-                    numer = zawodnikDruzyna.numer,
-                    idDruzyny = zawodnikDruzyna.idDruzyny
-                });
+            int idStat = await _statystykiService.DodajStatytyki(new Statystyki { });
 
-                return RedirectToAction("WyswietlWszystkichZawodnikow");
-           // }
+            await _zawodnikService.DodajZawodnika(new Zawodnik
+            {
+                nazwisko = zawodnikDruzyna.nazwisko,
+                imie = zawodnikDruzyna.imie,
+                dataUrodzenia = zawodnikDruzyna.dataUrodzenia,
+                numer = zawodnikDruzyna.numer,
+                idDruzyny = zawodnikDruzyna.idDruzyny,
+                idStatystyk = idStat
+            });
 
-           // return View(zawodnikDruzyna);
+            return RedirectToAction("ZawodnicyDruzyny", new { idDruzyny = zawodnikDruzyna.idDruzyny });
+            /*}
+
+            return View(zawodnikDruzyna);*/
         }
 
         [HttpGet]
-        public async Task<IActionResult> WyswietlWszystkichZawodnikow()
+        public async Task<IActionResult> Zawodnicy()
         {
             var zawodnicy = await _zawodnikService.GetAllAsync();
+            return View(zawodnicy);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ZawodnicyDruzyny(int idDruzyny)
+        {
+            var zawodnicy = await _zawodnikService.GetByDruzynaAsync(idDruzyny);
             return View(zawodnicy);
         }
     }

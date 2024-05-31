@@ -35,5 +35,10 @@ namespace LigaAmatorska.Infrastructure.Repositories
             return await _dbContext.Zaowdnicy
                 .FirstAsync(z => z.id == id);
         }
+
+        public async Task<IEnumerable<Zawodnik>> GetByDruzynaAsync(int idDruzyny)
+        {
+            return await _dbContext.Zaowdnicy.Where(z=>z.idDruzyny==idDruzyny).ToListAsync();
+        }
     }
 }

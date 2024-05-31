@@ -14,5 +14,7 @@ namespace LigaAmatorska.Application.Services
         public Task<IEnumerable<Zawodnik>> GetAllAsync();
 
         public Task<Zawodnik> GetByIdAsync(int id);
+
+        public Task<IEnumerable<Zawodnik>> GetByDruzynaAsync(int idDruzyny);
     }
 }

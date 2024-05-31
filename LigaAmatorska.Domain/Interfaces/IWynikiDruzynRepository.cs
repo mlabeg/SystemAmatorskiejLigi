@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Domain.Interfaces
 {
-    public interface IStatystykiRepository
+    public interface IWynikiDruzynRepository
     {
-        public Task<int> DodajStatystyki(Statystyki statystyki);
+        public Task<int> DodajWynikiDruzyn(WynikiDruzyny wyniki);
     }
 }

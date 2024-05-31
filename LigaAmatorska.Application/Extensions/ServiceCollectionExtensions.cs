@@ -16,6 +16,7 @@ namespace LigaAmatorska.Application.Extensions
             services.AddScoped<IMeczService, MeczService>();
             services.AddScoped<IZawodnikService, ZawodnikService>();
             services.AddScoped<IDruzynaService, DruzynaService>();
+            services.AddScoped<IStatystykiService, StaytstykiService>();
         }
     }
 }

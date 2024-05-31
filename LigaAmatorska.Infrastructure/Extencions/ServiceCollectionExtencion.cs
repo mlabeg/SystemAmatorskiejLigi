@@ -12,16 +12,17 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Infrastructure.Extencions
 {
-	public static class ServiceCollectionExtencion
-	{
-		public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
-		{
-			services.AddDbContext<LigaDbContext>(options => options.UseSqlServer(
-				configuration.GetConnectionString("LigaAmatorska")));
+    public static class ServiceCollectionExtencion
+    {
+        public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<LigaDbContext>(options => options.UseSqlServer(
+                configuration.GetConnectionString("LigaAmatorska")));
 
-			services.AddScoped<IMeczRepository, MeczRepository>();
-			services.AddScoped<IZawodnikRepository, ZawodnikRepository>();
-			services.AddScoped<IDruzynaRepository, DruzynaRepository>();
-		}
-	}
+            services.AddScoped<IMeczRepository, MeczRepository>();
+            services.AddScoped<IZawodnikRepository, ZawodnikRepository>();
+            services.AddScoped<IDruzynaRepository, DruzynaRepository>();
+            services.AddScoped<IStatystykiRepository, StatystykiRepository>();
+        }
+    }
 }

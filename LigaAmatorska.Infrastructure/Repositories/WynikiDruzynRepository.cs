@@ -1,28 +1,29 @@
 ﻿using LigaAmatorska.Domain.Entities;
-using LigaAmatorska.Domain.Interfaces;
 using LigaAmatorska.Infrastructure.Presistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LigaAmatorska.Domain.Interfaces;
 
 namespace LigaAmatorska.Infrastructure.Repositories
 {
-    internal class StatystykiRepository : IStatystykiRepository
+    internal class WynikiDruzynRepository: IWynikiDruzynRepository
     {
         private readonly LigaDbContext _dbContext;
 
-        public StatystykiRepository(LigaDbContext dbContext)
+        public WynikiDruzynRepository(LigaDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<int> DodajStatystyki(Statystyki statystyki)
+        public async Task<int> DodajWynikiDruzyn(WynikiDruzyny wyniki)
         {
-            _dbContext.Add(statystyki);
+            _dbContext.Add(wyniki);
             await _dbContext.SaveChangesAsync();
-            return statystyki.id;
+            return wyniki.Id;
         }
+
     }
 }

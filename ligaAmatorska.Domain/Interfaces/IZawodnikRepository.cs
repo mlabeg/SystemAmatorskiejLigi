@@ -14,5 +14,8 @@ namespace LigaAmatorska.Domain.Interfaces
 		Task<IEnumerable<Zawodnik>> GetAllAsync();
 
 		Task<Zawodnik> GetByIdAsync(int id);
-	}
+
+		public Task<IEnumerable<Zawodnik>> GetByDruzynaAsync(int idDruzyny);
+
+    }
 }

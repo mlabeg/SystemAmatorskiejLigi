@@ -31,5 +31,10 @@ namespace LigaAmatorska.Application.Services
         {
             return await _zawodnikRepository.GetByIdAsync(id);
         }
+
+        public async Task<IEnumerable<Zawodnik>> GetByDruzynaAsync(int idDruzyny)
+        {
+            return await _zawodnikRepository.GetByDruzynaAsync(idDruzyny);
+        }
     }
 }

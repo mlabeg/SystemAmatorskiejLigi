@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Application.Services
 {
-    internal class StaytstykiService:IStatystykiService
+    public class StaytstykiService : IStatystykiService
     {
         private readonly IStatystykiRepository _statystykiRepository;
 
@@ -17,9 +17,10 @@ namespace LigaAmatorska.Application.Services
             _statystykiRepository = statystykiRepository;
         }
 
-        public async Task DodajStatytyki(Statystyki staytstyki)
+        public async Task<int> DodajStatytyki(Statystyki staytstyki)
         {
             await _statystykiRepository.DodajStatystyki(staytstyki);
+            return staytstyki.id;
         }
     }
 }
