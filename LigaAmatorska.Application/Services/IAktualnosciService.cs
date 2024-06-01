@@ -2,7 +2,7 @@
 
 namespace LigaAmatorska.Application.Services
 {
-    internal interface IAktualnosciService
+    public interface IAktualnosciService
     {
         Task DodajWiadomosc(Aktualnosci aktualnosci);
 

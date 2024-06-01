@@ -18,8 +18,9 @@ namespace LigaAmatorska.Controllers
         private readonly IZawodnikService _zawodnikService;
         private readonly IStatystykiService _statystykiService;
         private readonly IWynikiDruzynService _wynikiDruzynService;
+        private readonly IAktualnosciService _aktualnosciService;
 
-        public HomeController(ILogger<HomeController> logger, IDruzynaService druzynaService, IMeczService meczService, IZawodnikService zawodnikService, IStatystykiService statystykiService, IWynikiDruzynService wynikiDruzynService)
+        public HomeController(ILogger<HomeController> logger, IDruzynaService druzynaService, IMeczService meczService, IZawodnikService zawodnikService, IStatystykiService statystykiService, IWynikiDruzynService wynikiDruzynService, IAktualnosciService aktualnosciService)
         {
             _logger = logger;
             _druzynaService = druzynaService;
@@ -27,6 +28,7 @@ namespace LigaAmatorska.Controllers
             _zawodnikService = zawodnikService;
             _statystykiService = statystykiService;
             _wynikiDruzynService = wynikiDruzynService;
+            _aktualnosciService = aktualnosciService;
         }
 
         public IActionResult Index()
@@ -194,7 +196,7 @@ namespace LigaAmatorska.Controllers
         [HttpPost]
         public IActionResult AktualizujWynikMeczu(Mecz mecz)
         {
-            if (ModelState.IsValid)//is valid?
+            if (ModelState.IsValid)
             {
                 _meczService.AktualizujWynikAsync(mecz.Id, mecz.WynikA, mecz.WynikB);
                 return RedirectToAction("Harmonogram");
@@ -208,9 +210,10 @@ namespace LigaAmatorska.Controllers
         }
 
         [HttpGet]
-        public IActionResult Aktualnosci()
+        public async Task<IActionResult> Aktualnosci()
         {
-            return View();
+            var aktualnosci = await _aktualnosciService.GetAllAsync();
+            return View(aktualnosci);
         }
     }
 }

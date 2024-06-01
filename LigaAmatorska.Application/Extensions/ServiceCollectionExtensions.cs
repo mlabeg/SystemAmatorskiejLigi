@@ -20,7 +20,7 @@ namespace LigaAmatorska.Application.Extensions
             services.AddScoped<IZawodnikService, ZawodnikService>();
             services.AddScoped<IStatystykiService, StaytstykiService>();
             services.AddScoped<IWynikiDruzynService, WynikiDruzynService>();
-            services.AddScoped<IAktualnosciRepository, IAktualnosciRepository>();
+            services.AddScoped<IAktualnosciService, AktualnosciService>();
         }
     }
 }
