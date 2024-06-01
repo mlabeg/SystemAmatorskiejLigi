@@ -1,0 +1,30 @@
+﻿@model LigaAmatorska.Domain.Entities.Mecz
+
+@{
+    ViewData["Title"] = "Aktualizacja Wyników Meczu";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Mecz: @Model.IdDruzynaA vs @Model.IdDruzynaB</h3>
+
+<form asp-action="Update">
+    <div class="form-group">
+        <label asp-for="WynikA" class="control-label">Wynik Drużyna A</label>
+        <input asp-for="WynikA" class="form-control" />
+        <span asp-validation-for="WynikA" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="WynikB" class="control-label">Wynik Drużyna B</label>
+        <input asp-for="WynikB" class="form-control" />
+        <span asp-validation-for="WynikB" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-primary">Zaktualizuj</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

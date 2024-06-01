@@ -1,11 +1,25 @@
 ﻿@model LigaAmatorska.Presentation.Models.LoginViewModel
-
 @{
-    ViewData["Title"] = "Logowanie";
+    Layout = null;
+}
+@{
+    ViewData["Title"] = "Warszawska Liga Amatorska";
+    
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ligaAmatorska</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ligaAmatorska.styles.css" asp-append-version="true" />
+</head>
+
 <div class="container">
-    <h2>Logowanie</h2>
+    <h2>Warszawska Liga Amatorska</h2>
     <hr />
     <div class="row">
         <div class="col-md-4">

@@ -163,5 +163,43 @@ namespace LigaAmatorska.Controllers
             var tabela = await _wynikiDruzynService.GetAllAsync();
             return View(tabela);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Harmonogram()
+        {
+            var harmonogram = await _meczService.GetAllAsync();
+            return View(harmonogram);
+        }
+
+        [HttpGet]
+        public IActionResult DodajMecz()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DodajMecz(Mecz mecz)
+        {
+            _meczService.DodajMecz(mecz);
+            return RedirectToAction("Harmonogram");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AktualizujWynikMeczu(int id)
+        {
+            var mecz = await _meczService.GetByIdAsync(id);
+            return View(mecz);
+        }
+
+        [HttpPost]
+        public IActionResult AktualizujWynikMeczu(Mecz mecz)
+        {
+            if (ModelState.IsValid)//is valid?
+            {
+                _meczService.AktualizujWynikAsync(mecz.Id, mecz.WynikA, mecz.WynikB);
+                return RedirectToAction("Harmonogram");
+            }
+            return View(mecz);
+        }
     }
 }

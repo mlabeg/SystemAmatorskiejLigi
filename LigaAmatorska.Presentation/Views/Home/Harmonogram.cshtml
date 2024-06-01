@@ -1,0 +1,35 @@
+﻿@model IEnumerable<LigaAmatorska.Domain.Entities.Mecz>
+@{
+    ViewData["Title"] = "Lista Meczów";
+}
+
+<h2 class="text-left my-4">Harmonogram</h2>
+
+<div class="text-left mb-4">
+    <a class="btn btn-primary" asp-action="DodajMecz">Dodaj Mecz</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        Brak danych
+    </div>
+}
+else
+{
+    <div class="list-group">
+        @foreach (var mecz in Model)
+        {
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <span>@mecz.IdDruzynaA @mecz.WynikA : @mecz.WynikB @mecz.IdDruzynaB</span>
+                <span class="badge badge-primary text-dark">@mecz.DataGodzina.ToString("g")</span>
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

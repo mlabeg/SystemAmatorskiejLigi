@@ -1,0 +1,43 @@
+﻿@model LigaAmatorska.Domain.Entities.Mecz
+@{
+    ViewData["Title"] = "Dodaj Nowy Mecz";
+}
+
+<h2>Dodaj Nowy Mecz</h2>
+
+<form asp-action="DodajMecz" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label asp-for="DataGodzina" class="control-label"></label>
+        <input asp-for="DataGodzina" class="form-control" type="datetime-local" />
+        <span asp-validation-for="DataGodzina" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IdDruzynaA" class="control-label"></label>
+        <input asp-for="IdDruzynaA" class="form-control" />
+        <span asp-validation-for="IdDruzynaA" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IdDruzynaB" class="control-label"></label>
+        <input asp-for="IdDruzynaB" class="form-control" />
+        <span asp-validation-for="IdDruzynaB" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="WynikA" class="control-label"></label>
+        <input asp-for="WynikA" class="form-control" />
+        <span asp-validation-for="WynikA" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="WynikB" class="control-label"></label>
+        <input asp-for="WynikB" class="form-control" />
+        <span asp-validation-for="WynikB" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Dodaj" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

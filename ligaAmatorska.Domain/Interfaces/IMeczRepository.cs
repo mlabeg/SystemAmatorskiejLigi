@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Domain.Interfaces
 {
-	public interface IMeczRepository
-	{
-		Task DodajMecz(Mecz mecz);
+    public interface IMeczRepository
+    {
+        Task DodajMecz(Mecz mecz);
 
-		Task<IEnumerable<Mecz>> GetAllAsync();
+        Task<IEnumerable<Mecz>> GetAllAsync();
 
-		Task<Mecz> GetByIdAsync(int id);
-	}
+        Task<Mecz> GetByIdAsync(int id);
+
+        public Task AktualizujWynikAsync(int id, int wynikA, int wynikB);
+    }
 }
