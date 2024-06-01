@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LigaAmatorska.Domain.Entities.WynikiDruzyny>
+﻿@model List<LigaAmatorska.Presentation.Models.TabelaDruzynaViewModel>
 @{
     ViewData["Title"] = "Wyniki Drużyn";
 }
@@ -14,34 +14,34 @@ else
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Nazwa</th>
                 <th>Wygrane</th>
                 <th>Przegrane</th>
-                <th>Punkty Duże</th>
-                <th>Punkty Zdobyte</th>
-                <th>Punkty Stracone</th>
-                <th>Mecze Rozegrane</th>
-                <th>Punkty Średnie Zdobyte</th>
-                <th>Punkty Średnie Stracone</th>
-                <th>Punkty Max Zdobyte</th>
-                <th>Punkty Max Stracone</th>
+                <th>Punkty</th>
+                <th>Mecze rozegrane</th>
+                <th>Punkty zdobyte</th>
+                <th>Punkty stracone</th>
+                <th>Średnia punktów zdobytych</th>
+                <th>Średnia punktów straconych</th>
+                <th>Max Punkty Zdobyte</th>
+                <th>Min Punkty Stracone</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var wyniki in Model)
             {
                 <tr>
-                    <td>@wyniki.Id</td>
-                    <td>@wyniki.Wygrane</td>
-                    <td>@wyniki.Przegrane</td>
-                    <td>@wyniki.PunktyDuże</td>
-                    <td>@wyniki.PunktyZdobyte</td>
-                    <td>@wyniki.PunktyStracone</td>
-                    <td>@wyniki.MeczeRozegrane</td>
-                    <td>@wyniki.PunktySrednieZdobyte</td>
-                    <td>@wyniki.PunktySrednieStracone</td>
-                    <td>@wyniki.PunktyMaxZdobyte</td>
-                    <td>@wyniki.PunktyMaxStracone</td>
+                    <td>@wyniki.Nazwa</td>
+                    <td>@wyniki.Wyniki.Wygrane</td>
+                    <td>@wyniki.Wyniki.Przegrane</td>
+                    <td>@wyniki.Wyniki.PunktyDuże</td>
+                    <td>@wyniki.Wyniki.MeczeRozegrane</td>
+                    <td>@wyniki.Wyniki.PunktyZdobyte</td>
+                    <td>@wyniki.Wyniki.PunktyStracone</td>
+                    <td>@wyniki.Wyniki.PunktySrednieZdobyte</td>
+                    <td>@wyniki.Wyniki.PunktySrednieStracone</td>
+                    <td>@wyniki.Wyniki.PunktyMaxZdobyte</td>
+                    <td>@wyniki.Wyniki.PunktyMaxStracone</td>
                 </tr>
             }
         </tbody>
