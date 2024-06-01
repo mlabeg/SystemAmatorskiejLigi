@@ -9,6 +9,10 @@ namespace LigaAmatorska.Domain.Interfaces
 {
     public interface IWynikiDruzynRepository
     {
-        public Task<int> DodajWynikiDruzyn(WynikiDruzyny wyniki);
+        public Task<int> DodajWynikiDruzynAsync(WynikiDruzyny wyniki);
+
+        public Task<IEnumerable<WynikiDruzyny>> GetAllAsync();
+
+        public Task<WynikiDruzyny> GetByIdAsync(int id);
     }
 }

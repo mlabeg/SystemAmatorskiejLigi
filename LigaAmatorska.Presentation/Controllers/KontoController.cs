@@ -14,7 +14,7 @@ namespace LigaAmatorska.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Logowanie(LoginViewModel model)
+        public IActionResult Logowanie(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {

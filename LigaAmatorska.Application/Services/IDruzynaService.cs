@@ -9,7 +9,7 @@ namespace LigaAmatorska.Application.Services
 {
     public interface IDruzynaService
     {
-        Task DodajDruzyne(Druzyna druzyna);
+        Task DodajDruzyneAsync(Druzyna druzyna);
 
         public Task<IEnumerable<Druzyna>> GetAllAsync();
 

@@ -19,7 +19,7 @@ namespace LigaAmatorska.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task DodajDruzyne(Druzyna druzyna)
+        public async Task DodajDruzyneAsync(Druzyna druzyna)
         {
             _dbContext.Druzyny.Add(druzyna);
             await _dbContext.SaveChangesAsync();

@@ -17,10 +17,20 @@ namespace LigaAmatorska.Application.Services
             _wynikiDruzynRepository = wynikiDruzynRepository;
         }
 
-        public async Task<int> DodajWynikiDruzyn(WynikiDruzyny wyniki)
+        public async Task<int> DodajWynikiDruzynAsync(WynikiDruzyny wyniki)
         {
-            _wynikiDruzynRepository.DodajWynikiDruzyn(wyniki);
+            await _wynikiDruzynRepository.DodajWynikiDruzynAsync(wyniki);
             return wyniki.Id;
+        }
+
+        public async Task<IEnumerable<WynikiDruzyny>> GetAllAsync()
+        {
+            return await _wynikiDruzynRepository.GetAllAsync();
+        }
+
+        public async Task<WynikiDruzyny> GetByIdAsync(int id)
+        {
+            return await _wynikiDruzynRepository.GetByIdAsync(id);
         }
     }
 }

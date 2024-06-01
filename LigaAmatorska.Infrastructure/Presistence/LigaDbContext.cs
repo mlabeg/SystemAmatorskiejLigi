@@ -26,7 +26,10 @@ namespace LigaAmatorska.Infrastructure.Presistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Zawodnik>().M
+            modelBuilder.Entity<Druzyna>()
+                .HasOne(w => w.WynikiDruzyny)
+                .WithMany()
+                .HasForeignKey(w => w.IdWynikowDruzyny);
         }
     }
 }

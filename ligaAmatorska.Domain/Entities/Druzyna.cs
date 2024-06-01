@@ -12,6 +12,6 @@ namespace LigaAmatorska.Domain.Entities
         public string Nazwa { get; set; }
         public int IdMenadzer { get; set; }
         public WynikiDruzyny WynikiDruzyny { get; set; }
-        public int IdWynikowDruzyny { get; set; }
+        public int? IdWynikowDruzyny { get; set; }
     }
 }

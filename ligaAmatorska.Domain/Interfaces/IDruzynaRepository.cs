@@ -9,7 +9,7 @@ namespace LigaAmatorska.Domain.Interfaces
 {
     public interface IDruzynaRepository
     {
-        Task DodajDruzyne(Druzyna druzyna);
+        Task DodajDruzyneAsync(Druzyna druzyna);
 
         Task<IEnumerable<Druzyna>> GetAllAsync();
 

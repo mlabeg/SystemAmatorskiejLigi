@@ -17,9 +17,9 @@ namespace LigaAmatorska.Application.Services
             _druzynaRepository = druzynaRepository;
         }
 
-        public async Task DodajDruzyne(Druzyna druzyna)
+        public async Task DodajDruzyneAsync(Druzyna druzyna)
         {
-            await _druzynaRepository.DodajDruzyne(druzyna);
+            await _druzynaRepository.DodajDruzyneAsync(druzyna);
         }
 
         public async Task<IEnumerable<Druzyna>> GetAllAsync()

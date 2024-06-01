@@ -51,15 +51,6 @@ namespace LigaAmatorska.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> DodajDruzyne(Druzyna druzyna)
-        {
-            int idWynikowDruzyn = await _wynikiDruzynService.DodajWynikiDruzyn(new WynikiDruzyny { });
-
-            await _druzynaService.DodajDruzyne(druzyna);
-            return RedirectToAction("WyswietlWszystkiedruzyny");
-        }
-
         [HttpGet]
         public async Task<IActionResult> WyswietlWszystkieDruzyny()
         {
@@ -86,6 +77,18 @@ namespace LigaAmatorska.Controllers
                 return RedirectToAction("WyswitlWszystkieDruzyny");
             }
             return View(druzyna);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DodajDruzyne(Druzyna druzyna)
+        {
+            int idWynikowDruzyn = await _wynikiDruzynService.DodajWynikiDruzynAsync(new WynikiDruzyny { });
+            await _druzynaService.DodajDruzyneAsync(new Druzyna
+            {
+                Nazwa = druzyna.Nazwa,
+                IdWynikowDruzyny = idWynikowDruzyn
+            });
+            return RedirectToAction("WyswietlWszystkiedruzyny");
         }
 
         public async Task<IActionResult> UsunDruzyne(int id)
@@ -152,6 +155,13 @@ namespace LigaAmatorska.Controllers
         {
             var zawodnicy = await _zawodnikService.GetByDruzynaAsync(idDruzyny);
             return View(zawodnicy);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Tabela()
+        {
+            var tabela = await _wynikiDruzynService.GetAllAsync();
+            return View(tabela);
         }
     }
 }
