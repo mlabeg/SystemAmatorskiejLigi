@@ -45,5 +45,10 @@ namespace LigaAmatorska.Infrastructure.Repositories
                 await _dbContext.SaveChangesAsync();
             }
         }
+
+        public async Task<Druzyna> GetByIdStatystykAsync(int id)
+        {
+            return await _dbContext.Druzyny.FirstOrDefaultAsync(d => d.IdWynikowDruzyny == id);
+        }
     }
 }

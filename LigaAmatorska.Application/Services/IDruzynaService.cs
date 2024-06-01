@@ -16,5 +16,7 @@ namespace LigaAmatorska.Application.Services
         public Task<Druzyna> GetByIdAsync(int id);
 
         public Task RemoveByIdAsync(int id);
+
+        public Task<Druzyna> GetByIdStatystykAsync(int id);
     }
 }

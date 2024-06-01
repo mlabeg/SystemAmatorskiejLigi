@@ -163,8 +163,18 @@ namespace LigaAmatorska.Controllers
         public async Task<IActionResult> Tabela()
         {
             var tabela = await _wynikiDruzynService.GetAllAsync();
+            List<TabelaDruzynaViewModel> tDVM = new List<TabelaDruzynaViewModel>();
+            foreach (var t in tabela)
+            {
+                var nazwa = await _druzynaService.GetByIdStatystykAsync(t.Id);
+                tDVM.Add(new TabelaDruzynaViewModel
+                {
+                    Nazwa = nazwa.Nazwa,
+                    Wyniki = t
+                });
+            }
             //var tabelaDruzyny=
-            return View(tabela);
+            return View(tDVM);
         }
 
         [HttpGet]
@@ -177,18 +187,6 @@ namespace LigaAmatorska.Controllers
                 m.DruzynaA = await _druzynaService.GetByIdAsync(m.IdDruzynaA);
                 m.DruzynaB = await _druzynaService.GetByIdAsync(m.IdDruzynaB);
             }
-            /*
-            var druzyny = await _druzynaService.GetAllAsync();
-            IEnumerable<MeczDruzynaViewModel> mDVM = new List<MeczDruzynaViewModel>();
-            foreach (var h in harmonogram)
-            {
-                mDVM.Append(new MeczDruzynaViewModel
-                {
-                    Mecz = h,
-                    NazwaDruzynyA = druzyny.FirstOrDefault(m => m.Id == h.IdDruzynaA).Nazwa,
-                    NazwaDruzynyB = druzyny.FirstOrDefault(m => m.Id == h.IdDruzynaB).Nazwa
-                });
-            }*/
             return View(harmonogram);
         }
 

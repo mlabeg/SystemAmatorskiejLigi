@@ -36,5 +36,10 @@ namespace LigaAmatorska.Application.Services
         {
             await _druzynaRepository.RemoveByIdAsync(id);
         }
+
+        public async Task<Druzyna> GetByIdStatystykAsync(int id)
+        {
+            return await _druzynaRepository.GetByIdStatystykAsync(id);
+        }
     }
 }
