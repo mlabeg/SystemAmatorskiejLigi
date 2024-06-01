@@ -11,7 +11,9 @@ namespace LigaAmatorska.Domain.Entities
         public int Id { get; set; }
         public DateTime DataGodzina { get; set; }
         public int IdDruzynaA { get; set; }
+        public Druzyna? DruzynaA { get; set; }
         public int IdDruzynaB { get; set; }
+        public Druzyna? DruzynaB { get; set; }
         public int WynikA { get; set; }
         public int WynikB { get; set; }
         public int? IdSedzia { get; set; }

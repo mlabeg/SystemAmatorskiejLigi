@@ -29,13 +29,17 @@ namespace LigaAmatorska.Infrastructure.Repositories
         public async Task<IEnumerable<Mecz>> GetAllAsync()
         {
             return await _dbContext.Mecze
-                .OrderBy(m=>m.DataGodzina)
+                .OrderBy(m => m.DataGodzina)
+                .Include(m => m.DruzynaA)
+                .Include(m => m.DruzynaB)
                 .ToListAsync();
         }
 
         public async Task<Mecz> GetByIdAsync(int id)
         {
             return await _dbContext.Mecze
+                .Include(m => m.DruzynaA)
+                .Include(m => m.DruzynaB)
                 .FirstAsync(m => m.Id == id);
         }
 
