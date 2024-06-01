@@ -23,6 +23,7 @@ else
             <div class="list-group-item d-flex justify-content-between align-items-center">
                 <span>@mecz.IdDruzynaA @mecz.WynikA : @mecz.WynikB @mecz.IdDruzynaB</span>
                 <span class="badge badge-primary text-dark">@mecz.DataGodzina.ToString("g")</span>
+                <a class="btn btn-secondary" asp-action="AktualizujWynikMeczu" asp-route-id="@mecz.Id">Dodaj wynik meczu</a>
             </div>
         }
     </div>

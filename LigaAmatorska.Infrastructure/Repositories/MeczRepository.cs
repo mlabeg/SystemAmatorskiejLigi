@@ -28,7 +28,9 @@ namespace LigaAmatorska.Infrastructure.Repositories
 
         public async Task<IEnumerable<Mecz>> GetAllAsync()
         {
-            return await _dbContext.Mecze.ToListAsync();
+            return await _dbContext.Mecze
+                .OrderBy(m=>m.DataGodzina)
+                .ToListAsync();
         }
 
         public async Task<Mecz> GetByIdAsync(int id)

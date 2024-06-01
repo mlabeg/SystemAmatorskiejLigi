@@ -8,7 +8,7 @@
 
 <h3>Mecz: @Model.IdDruzynaA vs @Model.IdDruzynaB</h3>
 
-<form asp-action="Update">
+<form asp-action="AktualizujWynikMeczu">
     <div class="form-group">
         <label asp-for="WynikA" class="control-label">Wynik Drużyna A</label>
         <input asp-for="WynikA" class="form-control" />
@@ -20,6 +20,10 @@
         <span asp-validation-for="WynikB" class="text-danger"></span>
     </div>
     <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="WynikA"/>
+    <input type="hidden" asp-for="WynikB"/>
+    
+
     <button type="submit" class="btn btn-primary">Zaktualizuj</button>
 </form>
 

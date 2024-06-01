@@ -23,6 +23,7 @@ namespace LigaAmatorska.Infrastructure.Presistence
         public DbSet<LigaAmatorska.Domain.Entities.Uzytkkownik> Uzytkownicy { get; set; }
         public DbSet<LigaAmatorska.Domain.Entities.Zawodnik> Zaowdnicy { get; set; }
         public DbSet<WynikiDruzyny> WynikiDruzynies { get; set; }
+        public DbSet<LigaAmatorska.Domain.Entities.Aktualnosci> Aktualnoscis { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

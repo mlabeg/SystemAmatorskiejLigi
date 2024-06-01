@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LigaAmatorska.Domain.Entities.Aktualnosci>
+
+@{
+    ViewData["Title"] = "Aktualności";
+}
+
+<h2 class="text-left my-4">Aktualności</h2>
+
+<a href="@Url.Action("DodajWiadomosc", "Home")" class="btn btn-primary mb-3">Dodaj wiadomosc</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        Brak danych
+    </div>
+}
+else
+{
+    <div class="list-group">
+        @foreach (var news in Model)
+        {
+            <div class="list-group-item">
+                <h3 class="mb-1">@news.Tytul</h3>
+                <small class="text-muted">@news.DataDodania.ToString("dd MMMM yyyy, HH:mm")</small>
+                <p class="mt-2">@news.Tresc</p>
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-secondary btn-sm me-2" asp-action="Edytuj" asp-route-id="@news.Id">Edytuj</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Usun" asp-route-id="@news.Id">Usuń</a>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -201,5 +201,16 @@ namespace LigaAmatorska.Controllers
             }
             return View(mecz);
         }
+
+        public IActionResult StronaWBudowie()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Aktualnosci()
+        {
+            return View();
+        }
     }
 }

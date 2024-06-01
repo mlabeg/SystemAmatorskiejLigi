@@ -12,11 +12,13 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <form asp-controller="Konto" asp-action="Logowanie" method="post" class="form-inline">
-                    <button type="submit" class="btn btn-link nav-link">Wyloguj</button>
-                </form>
+                            <form asp-controller="Konto" asp-action="Logowanie" method="post" class="form-inline">
+                                <button type="submit" class="btn btn-link nav-link">Wyloguj</button>
+                            </form>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
-                    <ul class="navbar-nav ms-auto flex-grow-1">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                       
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Aktualnosci">Aktualności</a>
                         </li>
@@ -33,10 +35,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Zawodnicy">Zawodnicy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Statystyki">Statystyki</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="StronaWBudowie">Statystyki</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NaZywo">Na Żywo</a>
+                            <a class="nav-link btn btn-danger text-white" asp-area="" asp-controller="Home" asp-action="StronaWBudowie">Na Żywo</a>
                         </li>
                     </ul>
                 </div>
