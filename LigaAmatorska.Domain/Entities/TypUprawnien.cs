@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace LigaAmatorska.Domain.Entities
 {
-    internal class Harmonogram
-    {
-        public List<Mecz> ListaMeczow { get; set; }
-    }
+	public class TypUprawnien
+	{
+		public int id { get; set; }
+		public string nazwa { get; set; }
+		public string opis { get; set; }
+	}
 }
