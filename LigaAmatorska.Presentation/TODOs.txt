@@ -1,3 +1,7 @@
 TODOs:
 
 - przy dodawniu zawodnika z poziomu konkretnej dru¿yny nale¿y móc dodaæ go tylko do jednej konkretnej dru¿yny
+
+- podzia³ kontrolera na podkontrolery i dodanie do nich tylko odpowiednich serwisów
+
+- 
