@@ -9,7 +9,7 @@ namespace LigaAmatorska.Application.Services
 {
     public interface IMeczService
     {
-        Task DodajMecz(Mecz mecz);
+        Task DodajMeczAsync(Mecz mecz);
 
         public Task<IEnumerable<Mecz>> GetAllAsync();
 

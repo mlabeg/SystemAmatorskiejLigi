@@ -20,7 +20,7 @@ namespace LigaAmatorska.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task DodajMecz(Mecz mecz)
+        public async Task DodajMeczAsync(Mecz mecz)
         {
             _dbContext.Mecze.Add(mecz);
             await _dbContext.SaveChangesAsync();

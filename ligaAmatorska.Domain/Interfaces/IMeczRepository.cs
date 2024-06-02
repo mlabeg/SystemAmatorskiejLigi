@@ -9,7 +9,7 @@ namespace LigaAmatorska.Domain.Interfaces
 {
     public interface IMeczRepository
     {
-        Task DodajMecz(Mecz mecz);
+        Task DodajMeczAsync(Mecz mecz);
 
         Task<IEnumerable<Mecz>> GetAllAsync();
 

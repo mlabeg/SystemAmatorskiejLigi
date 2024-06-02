@@ -17,9 +17,9 @@ namespace LigaAmatorska.Application.Services
             _meczRepository = meczRepository;
         }
 
-        public async Task DodajMecz(Mecz mecz)
+        public async Task DodajMeczAsync(Mecz mecz)
         {
-            await _meczRepository.DodajMecz(mecz);
+            await _meczRepository.DodajMeczAsync(mecz);
         }
 
         public async Task<IEnumerable<Mecz>> GetAllAsync()

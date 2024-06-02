@@ -201,7 +201,7 @@ namespace LigaAmatorska.Controllers
         [HttpPost]
         public async Task<IActionResult> DodajMecz(Mecz mecz)
         {
-            _meczService.DodajMecz(mecz);
+            await _meczService.DodajMeczAsync(mecz);
             return RedirectToAction("Harmonogram");
         }
 
