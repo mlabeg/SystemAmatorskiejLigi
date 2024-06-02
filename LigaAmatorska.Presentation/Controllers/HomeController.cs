@@ -167,13 +167,15 @@ namespace LigaAmatorska.Controllers
             foreach (var t in tabela)
             {
                 var nazwa = await _druzynaService.GetByIdStatystykAsync(t.Id);
-                tDVM.Add(new TabelaDruzynaViewModel
+                if (nazwa != null)
                 {
-                    Nazwa = nazwa.Nazwa,
-                    Wyniki = t
-                });
+                    tDVM.Add(new TabelaDruzynaViewModel
+                    {
+                        Nazwa = nazwa.Nazwa,
+                        Wyniki = t
+                    });
+                }
             }
-            //var tabelaDruzyny=
             return View(tDVM);
         }
 
@@ -211,11 +213,11 @@ namespace LigaAmatorska.Controllers
         }
 
         [HttpPost]
-        public IActionResult AktualizujWynikMeczu(Mecz mecz)
+        public async Task<IActionResult> AktualizujWynikMeczu(Mecz mecz)
         {
             if (ModelState.IsValid)
             {
-                _meczService.AktualizujWynikAsync(mecz.Id, mecz.WynikA, mecz.WynikB);
+                await _meczService.AktualizujWynikAsync(mecz.Id, mecz.WynikA, mecz.WynikB);
                 return RedirectToAction("Harmonogram");
             }
             return View(mecz);
@@ -231,6 +233,20 @@ namespace LigaAmatorska.Controllers
         {
             var aktualnosci = await _aktualnosciService.GetAllAsync();
             return View(aktualnosci);
+        }
+
+        [HttpGet]
+        public IActionResult DodajWiadomosc()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DodajWiadomosc(Aktualnosci wiadomosc)
+        {
+            wiadomosc.DataDodania = DateTime.Now;
+            await _aktualnosciService.DodajWiadomosc(wiadomosc);
+            return RedirectToAction("Aktualnosci");
         }
     }
 }

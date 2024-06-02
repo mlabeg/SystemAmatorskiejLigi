@@ -4,8 +4,12 @@
 }
 @{
     ViewData["Title"] = "Warszawska Liga Amatorska";
-    
 }
+
+<div class="logo">
+    <img src="~/images/logo.png" alt="Liga Logo" />
+    <h1>Warszawska Liga Amatorska</h1>
+</div>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,34 +20,46 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ligaAmatorska.styles.css" asp-append-version="true" />
-</head>
+    <style>
+        .logo {
+            text-align: center;
+            margin: 20px 0;
+        }
 
-<div class="container">
-    <h2>Warszawska Liga Amatorska</h2>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Logowanie">
-                <div class="form-group">
-                    <label class="control-label">Nazwa użytkownika:</label>
-                    <input asp-for="NazwaUzytkownika" class="form-control" />
-                    <span asp-validation-for="NazwaUzytkownika" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Hasło:</label>
-                    <input asp-for="Haslo" type="password" class="form-control" />
-                    <span asp-validation-for="Haslo" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Zaloguj" class="btn btn-primary" />
-                </div>
-            </form>
+            .logo img {
+                max-height: 300px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Warszawska Liga Amatorska</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Logowanie">
+                    <div class="form-group">
+                        <label class="control-label">Nazwa użytkownika:</label>
+                        <input asp-for="NazwaUzytkownika" class="form-control" />
+                        <span asp-validation-for="NazwaUzytkownika" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Hasło:</label>
+                        <input asp-for="Haslo" type="password" class="form-control" />
+                        <span asp-validation-for="Haslo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Zaloguj" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
     }
-}
+</body>
+</html>
