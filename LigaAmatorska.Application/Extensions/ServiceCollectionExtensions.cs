@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using LigaAmatorska.Application.Services;
-
 namespace LigaAmatorska.Application.Extensions
 {
     public static class ServiceCollectionExtensions
