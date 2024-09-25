@@ -88,7 +88,7 @@ namespace LigaAmatorska.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ZawodnicyDruzyny(int idDruzyny)
+        public async Task<IActionResult> GetAllTeamsPlayers(int idDruzyny)
         {
             var zawodnicy = await _zawodnikService.GetByDruzynaAsync(idDruzyny);
             return View(zawodnicy);
@@ -127,6 +127,7 @@ namespace LigaAmatorska.Controllers
             return View(harmonogram);
         }
 
+        /*
         [HttpGet]
         public IActionResult DodajMecz()
         {
@@ -156,7 +157,7 @@ namespace LigaAmatorska.Controllers
                 return RedirectToAction("Harmonogram");
             }
             return View(mecz);
-        }
+        }*/
 
         public IActionResult StronaWBudowie()
         {
