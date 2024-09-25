@@ -6,7 +6,7 @@
 <h2 class="text-left my-4">Harmonogram</h2>
 
 <div class="text-left mb-4">
-    <a class="btn btn-primary" asp-action="DodajMecz">Dodaj Mecz</a>
+    <a class="btn btn-primary" asp-controller="Games" asp-action="DodajMecz">Dodaj Mecz</a>
 </div>
 
 @if (!Model.Any())
@@ -28,7 +28,7 @@ else
                 </div>
                 <div class="d-flex align-items-center">
                     <span class="badge badge-primary text-dark">@mecz.DataGodzina.ToString("g")</span>
-                    <a class="btn btn-secondary ml-3" asp-action="AktualizujWynikMeczu" asp-route-id="@mecz.Id">Dodaj wynik meczu</a>
+                    <a class="btn btn-secondary ml-3" asp-controller="Games" asp-action="AktualizujWynikMeczu" asp-route-id="@mecz.Id">Aktualizuj wynik meczu</a>
                 </div>
             </div>
         }
